@@ -42,3 +42,7 @@ posiada(X,but_piłkarski):- osoba(X,_,piłkarz).
 posiada(X,piłka):- osoba(X,_,piłkarz).
 %Osoba prawdopodobnie posiada noż jeśli jest rzeźnikiem
 posiada(X,nóż):- osoba(X,_,rzeźnik)
+posiada(X,nożyczki):- osoba(X, _, chirurg)
+posiada(X,nóż):- osoba(X,_,chirurg)
+posiada(X,łom):- osoba(X, _, złodziej)
+posiada(X, noga_od_stołu):- osoba(X, _, stolarz)
