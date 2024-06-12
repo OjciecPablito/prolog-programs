@@ -41,11 +41,17 @@ kobieta(agnieszka).
 posiada(X,but_piłkarski):- osoba(X,_,piłkarz).
 posiada(X,piłka):- osoba(X,_,piłkarz).
 %Osoba prawdopodobnie posiada noż jeśli jest rzeźnikiem
-posiada(X,nóż):- osoba(X,_,rzeźnik)
+posiada(X,nóż):- osoba(X,_,rzeźnik).
 %Osoba prawdopodobnie posiada noż bądź nożyczki jeśli jest chirurgiem
-posiada(X,nożyczki):- osoba(X, _, chirurg)
-posiada(X,nóż):- osoba(X,_,chirurg)
+posiada(X,nożyczki):- osoba(X, _, chirurg).
+posiada(X,nóż):- osoba(X,_,chirurg).
 %Osoba prawdopodobnie posiada łom jeśli jest złodziejem
-posiada(X,łom):- osoba(X, _, złodziej)
+posiada(X,łom):- osoba(X, _, złodziej).
 %Osoba prawdopodobnie posiada nogę od stołu jeśli jest stolarzem
-posiada(X, noga_od_stołu):- osoba(X, _, stolarz)
+posiada(X, noga_od_stołu):- osoba(X, _, stolarz).
+posiada(X, narzędzie_zbrodni):- posiada(X, rewolwer);
+                                posiada(X, nóż);
+                                posiada(X, nożyczki);
+                                posiada(X, łom);
+                                posiada(X, kij_golfowy);
+                                posiada(X, noga_od_stołu).
