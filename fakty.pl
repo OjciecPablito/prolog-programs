@@ -49,9 +49,15 @@ posiada(X,nóż):- osoba(X,_,chirurg).
 posiada(X,łom):- osoba(X, _, złodziej).
 %Osoba prawdopodobnie posiada nogę od stołu jeśli jest stolarzem
 posiada(X, noga_od_stołu):- osoba(X, _, stolarz).
+%Określenie kto ma narzędzie zbrodni
 posiada(X, narzędzie_zbrodni):- posiada(X, rewolwer);
                                 posiada(X, nóż);
                                 posiada(X, nożyczki);
                                 posiada(X, łom);
                                 posiada(X, kij_golfowy);
-                                posiada(X, noga_od_stołu).
+                                posiada(X, noga_od_stołu);
+                                posiada(X, sztuczna_noga).
+podejrzany(X):-zamordowana(Z), prawdopodobnie_zamordowana(Z, Y),
+    podobne_obrażenia(N, Y), posiada(X, N).
+
+motyw(X, zazdrość)
