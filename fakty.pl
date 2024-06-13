@@ -60,4 +60,7 @@ posiada(X, narzędzie_zbrodni):- posiada(X, rewolwer);
 podejrzany(X):-zamordowana(Z), prawdopodobnie_zamordowana(Z, Y),
     podobne_obrażenia(N, Y), posiada(X, N).
 
-motyw(X, zazdrość)
+motyw(X, zazdrość):-mężczyzna(X), zamordowana(Z), romans(Z, X).
+motyw(X, zazdrość):-kobieta(X), zamordowana(Z), romans(Z, M), 
+    romans(X,M), X \= Z.
+motyw(X, pięniądze):-mężczyzna(X), osoba(X, _, złodziej).
