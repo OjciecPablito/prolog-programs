@@ -16,3 +16,32 @@ Przyjęta ocena wkaźnika:
     35 <= bmi < 40  otyłość
     40 <= bmi       chorobliwa otyłość
 */
+% Fakty
+osoba(ala, 170, 80).
+osoba(zosia, 180, 50).
+osoba(andrzej, 160, 80).
+osoba(jan, 170, 84).
+osoba(ja, 170, 75).
+
+% Reguły
+bmi(X, Y):-osoba(X,Wzrost, Waga), Bmi is Waga/(Wzrost/100)^2,
+    (
+        (Bmi < 20, Y = niedowaga);
+        (Bmi >= 20, Bmi < 25, Y = zdrowy);
+        (Bmi >= 25, Bmi < 35, Y = nadwaga);
+        (Bmi >= 35, Bmi < 40, Y = otyłość);
+        (Bmi >= 40, Y = chorobliwa_otyłość)
+
+    ).
+
+% Rekurencja
+/*
+silnia(n)=silnia(n-1)*N, N>1
+silnia(1)=1
+
+silnia(5)=silnia(4)*5   = 24*5 = 120
+silnia(4)=silnia(3)*4   = 6*4 = 24
+silnia(3)=silnia(2)*3   = 2*3 = 6
+silnia(2)=silnia(1)*2   = 1*2 = 2
+silnia(1)=1
+*/
