@@ -10,8 +10,8 @@ romans(anna, krzysztof).
 romans(agnieszka, piotr).
 romans(agnieszka,tomasz).
 zamordowana(agnieszka).
-prowdopodobnie_zamordowana(agnieszka,kij_golfowy).
-prowdopodobnie_zamordowana(agnieszka,łow).
+prawdopodobnie_zamordowana(agnieszka,kij_golfowy).
+prawdopodobnie_zamordowana(agnieszka,łow).
 
 pobrudzony(tomasz,krew).
 pobrudzony(agnieszka,krew).
