@@ -64,3 +64,5 @@ motyw(X, zazdrość):-mężczyzna(X), zamordowana(Z), romans(Z, X).
 motyw(X, zazdrość):-kobieta(X), zamordowana(Z), romans(Z, M), 
     romans(X,M), X \= Z.
 motyw(X, pięniądze):-mężczyzna(X), osoba(X, _, złodziej).
+morderca(X):- podejrzany(X), motyw(X,_), zamordowana(Z),
+    pobrudzony(Z,S), pobrudzony(X, S).
