@@ -35,7 +35,8 @@ mężczyzna(tomasz).
 kobieta(anna).
 kobieta(agnieszka).
 
-%reguly
+%--------------------
+%Reguly
 
 %Osoba prawdopodobnie posiada buty piłkarskie lub piłkę jeśli jest piłkarzem
 posiada(X,but_piłkarski):- osoba(X,_,piłkarz).
@@ -66,3 +67,5 @@ motyw(X, zazdrość):-kobieta(X), zamordowana(Z), romans(Z, M),
 motyw(X, pięniądze):-mężczyzna(X), osoba(X, _, złodziej).
 morderca(X):- podejrzany(X), motyw(X,_), zamordowana(Z),
     pobrudzony(Z,S), pobrudzony(X, S).
+
+motyw_mordercy(M):- morderca(X), motyw(X, M).
