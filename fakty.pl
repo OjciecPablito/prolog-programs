@@ -58,13 +58,22 @@ posiada(X, narzędzie_zbrodni):- posiada(X, rewolwer);
                                 posiada(X, kij_golfowy);
                                 posiada(X, noga_od_stołu);
                                 posiada(X, sztuczna_noga).
+% Osoba jest podejrzana jeśli prawdopodobnie posiada narzędzie
+% którego uderzenie powoduje podobne obrażenia jak narzędzie, którym
+% została uderzona osoba zamordowana
 podejrzany(X):-zamordowana(Z), prawdopodobnie_zamordowana(Z, Y),
     podobne_obrażenia(N, Y), posiada(X, N).
-
+% Motywem osoby będącej mężczyzną jest zazdrość jeśli mężczyzna miał romans z
+% osobą zamordowaną
 motyw(X, zazdrość):-mężczyzna(X), zamordowana(Z), romans(Z, X).
+% Motywem osoby będącej kobietą jest zazdrość jeśli kobieta miała romans z
+% tym samym mężczyzną 
 motyw(X, zazdrość):-kobieta(X), zamordowana(Z), romans(Z, M), 
     romans(X,M), X \= Z.
+% Motywem osoby będącej mężczyzną są pieniądze jeśli jest on złodziejem
 motyw(X, pięniądze):-mężczyzna(X), osoba(X, _, złodziej).
+% Mordercą jest osoba podejrzana, posiadająca motyw i która była
+% pobrudzona tą samą substancjąco osoba zamordowana
 morderca(X):- podejrzany(X), motyw(X,_), zamordowana(Z),
     pobrudzony(Z,S), pobrudzony(X, S).
 

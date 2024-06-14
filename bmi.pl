@@ -45,3 +45,5 @@ silnia(3)=silnia(2)*3   = 2*3 = 6
 silnia(2)=silnia(1)*2   = 1*2 = 2
 silnia(1)=1
 */
+silnia(1, 1).
+silnia(W,N):- N > 1, N1 is N-1, silnia(W1, N1), W is W1*N.
